@@ -3,11 +3,11 @@ uvicorn[standard]
 python-dotenv
 pydantic-settings
 supabase
-sentence-transformers==2.7.0
+sentence-transformers
 networkx
 python-louvain==0.16
-transformers==4.40.0
-torch==2.2.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+transformers
+torch --index-url https://download.pytorch.org/whl/cpu
 prophet
 requests
 httpx

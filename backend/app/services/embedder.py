@@ -1,16 +1,17 @@
 import math
 import numpy as np
-from sentence_transformers import SentenceTransformer
 
 # Global embedding model cache
 _embedding_model = None
 
-def get_embedding_model() -> SentenceTransformer:
+def get_embedding_model():
     global _embedding_model
-    if _embedding_model is None:
-        print("Loading embedding model...")
-        _embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-        print("Embedding model ready")
+    if _embedding_model is not None:
+        return _embedding_model
+    from sentence_transformers import SentenceTransformer
+    print("Loading embedding model...")
+    _embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+    print("Embedding model ready")
     return _embedding_model
 
 def embed_papers_for_topic(
