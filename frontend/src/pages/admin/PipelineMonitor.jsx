@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
-import { indexAPI } from '../../lib/api'
+import api, { indexAPI } from '../../lib/api'
 import { CheckCircle2, AlertTriangle, RefreshCw } from 'lucide-react'
 
 export default function PipelineMonitor() {
@@ -116,7 +116,7 @@ export default function PipelineMonitor() {
             value: backendOnline ? '● Online' : '● Offline',
             color: backendOnline ? 'var(--success)' : 'var(--danger)',
             desc: backendOnline
-              ? 'localhost:8000 responding'
+              ? `${api.defaults.baseURL} responding`
               : 'Cannot reach backend'
           },
           {
