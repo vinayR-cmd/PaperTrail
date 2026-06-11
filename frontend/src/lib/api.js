@@ -6,6 +6,9 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' }
 })
 
+console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
+console.log("Axios baseURL =", api.defaults.baseURL);
+
 export const searchAPI = {
   semanticSearch: (query, topicSlug, nResults = 10) =>
     api.post('/search', { query, topic_slug: topicSlug, n_results: nResults }),
